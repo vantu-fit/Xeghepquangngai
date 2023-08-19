@@ -4,7 +4,7 @@ function Footer() {
   return (
     <>
       {/*Footer*/}
-      <footer className="bg-white">
+      <footer className="bg-slate-800">
         <div className="container mx-auto px-8">
           <div className="w-full flex flex-col md:flex-row py-6">
             <div className="flex-1 mb-6 text-black">
@@ -40,7 +40,7 @@ function Footer() {
                 <li className="mt-2 inline-block mr-2 md:block md:mr-0">
                   <a
                     href="#"
-                    className="no-underline hover:underline text-gray-800 hover:text-pink-500"
+                    className="no-underline hover:underline text-gray-500 hover:text-pink-500"
                   >
                     FAQ
                   </a>
@@ -48,7 +48,7 @@ function Footer() {
                 <li className="mt-2 inline-block mr-2 md:block md:mr-0">
                   <a
                     href="#"
-                    className="no-underline hover:underline text-gray-800 hover:text-pink-500"
+                    className="no-underline hover:underline text-gray-500 hover:text-pink-500"
                   >
                     Help
                   </a>
@@ -56,7 +56,7 @@ function Footer() {
                 <li className="mt-2 inline-block mr-2 md:block md:mr-0">
                   <a
                     href="#"
-                    className="no-underline hover:underline text-gray-800 hover:text-pink-500"
+                    className="no-underline hover:underline text-gray-500 hover:text-pink-500"
                   >
                     Support
                   </a>
@@ -69,7 +69,7 @@ function Footer() {
                 <li className="mt-2 inline-block mr-2 md:block md:mr-0">
                   <a
                     href="#"
-                    className="no-underline hover:underline text-gray-800 hover:text-pink-500"
+                    className="no-underline hover:underline text-gray-500 hover:text-pink-500"
                   >
                     Terms
                   </a>
@@ -77,7 +77,7 @@ function Footer() {
                 <li className="mt-2 inline-block mr-2 md:block md:mr-0">
                   <a
                     href="#"
-                    className="no-underline hover:underline text-gray-800 hover:text-pink-500"
+                    className="no-underline hover:underline text-gray-500 hover:text-pink-500"
                   >
                     Privacy
                   </a>
@@ -90,7 +90,7 @@ function Footer() {
                 <li className="mt-2 inline-block mr-2 md:block md:mr-0">
                   <a
                     href="#"
-                    className="no-underline hover:underline text-gray-800 hover:text-pink-500"
+                    className="no-underline hover:underline text-gray-500 hover:text-pink-500"
                   >
                     Facebook
                   </a>
@@ -98,7 +98,7 @@ function Footer() {
                 <li className="mt-2 inline-block mr-2 md:block md:mr-0">
                   <a
                     href="#"
-                    className="no-underline hover:underline text-gray-800 hover:text-pink-500"
+                    className="no-underline hover:underline text-gray-500 hover:text-pink-500"
                   >
                     Linkedin
                   </a>
@@ -106,7 +106,7 @@ function Footer() {
                 <li className="mt-2 inline-block mr-2 md:block md:mr-0">
                   <a
                     href="#"
-                    className="no-underline hover:underline text-gray-800 hover:text-pink-500"
+                    className="no-underline hover:underline text-gray-500 hover:text-pink-500"
                   >
                     Twitter
                   </a>
@@ -119,7 +119,7 @@ function Footer() {
                 <li className="mt-2 inline-block mr-2 md:block md:mr-0">
                   <a
                     href="#"
-                    className="no-underline hover:underline text-gray-800 hover:text-pink-500"
+                    className="no-underline hover:underline text-gray-500 hover:text-pink-500"
                   >
                     Official Blog
                   </a>
@@ -127,7 +127,7 @@ function Footer() {
                 <li className="mt-2 inline-block mr-2 md:block md:mr-0">
                   <a
                     href="#"
-                    className="no-underline hover:underline text-gray-800 hover:text-pink-500"
+                    className="no-underline hover:underline text-gray-500 hover:text-pink-500"
                   >
                     About Us
                   </a>
@@ -135,7 +135,7 @@ function Footer() {
                 <li className="mt-2 inline-block mr-2 md:block md:mr-0">
                   <a
                     href="#"
-                    className="no-underline hover:underline text-gray-800 hover:text-pink-500"
+                    className="no-underline hover:underline text-gray-500 hover:text-pink-500"
                   >
                     Contact
                   </a>
