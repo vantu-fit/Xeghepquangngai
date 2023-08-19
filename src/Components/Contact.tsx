@@ -1,3 +1,4 @@
+import React from "react";
 function Contact() {
   return (
     <div className="fixed left-2 bottom-2 z-40">
