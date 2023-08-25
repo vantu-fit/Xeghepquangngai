@@ -1,19 +1,29 @@
 import React from "react";
 import TitleBlock from "./TitleBlock";
-
+import { useQuery } from "@tanstack/react-query";
+import { getPost } from "../apis/api";
+import { Post } from "../types/types";
 function Title() {
+  const { data } = useQuery({
+    queryKey: ["posts"],
+    queryFn: getPost,
+  });
+  // console.log(data?.data);
   return (
-    <section className="bg-white border-b py-8">
-      <div className="container mx-auto flex flex-wrap pt-4 pb-12">
-        <h2 className="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
-          Title
-        </h2>
-        <div className="w-full mb-4">
-          <div className="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t" />
-        </div>
-        <TitleBlock />
-        <TitleBlock />
-        <TitleBlock />  
+    <section className="w-full px-4 py-2 lg:w-5/6 lg:mx-auto">
+      <h2 className="text-center text-[16px] lg:text-4xl uppercase font-semibold border-[1px] py-2">
+        thông tin mới nhất
+      </h2>
+      <div className="">
+        {data?.data.map((post: Post) => (
+          <TitleBlock
+            title={post.title}
+            content={post.content}
+            image={post.image}
+            _id={post._id}
+            key={post._id}
+          />
+        ))}
       </div>
     </section>
   );

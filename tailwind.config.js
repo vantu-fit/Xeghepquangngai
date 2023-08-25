@@ -5,7 +5,12 @@ import plugin from "tailwindcss";
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily : {
+        'sans': ['"Inter var"', 'sans-serif'],
+        'cus' : ['"Poppins"', 'sans-serif']
+      }
+    },
   },
   plugins: [
     plugin(function ({ addComponents, theme }) {

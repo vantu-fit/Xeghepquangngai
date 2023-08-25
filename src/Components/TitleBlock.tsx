@@ -1,30 +1,26 @@
 import React from "react";
+import { Post } from "../types/types";
+import { NavLink } from "react-router-dom";
 
-function TitleBlock() {
+function TitleBlock({ _id, content, image, title }: Post) {
   return (
-    <div className="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-      <div className="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
-        <a href="#" className="flex flex-wrap no-underline hover:no-underline">
-          <p className="w-full text-gray-600 text-xs md:text-sm px-6">
-            xGETTING STARTED
-          </p>
-          <div className="w-full font-bold text-xl text-gray-800 px-6">
-            Lorem ipsum dolor sit amet.
-          </div>
-          <p className="text-gray-800 text-base px-6 mb-5">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at
-            ipsum eu nunc commodo posuere et sit amet ligula.
-          </p>
-        </a>
-      </div>
-      <div className="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
-        <div className="flex items-center justify-start">
-          <button className="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-            Action
-          </button>
+    <NavLink to={`/chi-tiet/${_id}`}>
+      <div className="w-full h-[100px] lg:h-[200px] my-2 py-2 grid grid-cols-12 gap-1 shadow-lg rounded-md">
+        <div className="col-span-4 lg:col-span-3 h-full">
+          <img
+            src={image}
+            alt=""
+            className="h-[90px] lg:h-[180px] rounded-xl py-1 w-full"
+          />
+        </div>
+        <div className="col-span-8 lg:col-span-9 overflow-y-hidden pl-2">
+          <h3 className="uppercase text-[12px] lg:text-[22px] font-semibold ">
+            {title}
+          </h3>
+          <span className="text-[12px] lg:text-[16px]"> {content} </span>
         </div>
       </div>
-    </div>
+    </NavLink>
   );
 }
 
