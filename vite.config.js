@@ -10,4 +10,7 @@ export default defineConfig({
   css: {
     devSourcemap: true,
   },
+  preview : {
+    port: 3001,
+  }
 });
