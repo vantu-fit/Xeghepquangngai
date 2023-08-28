@@ -92,7 +92,7 @@ function Properti() {
               Tourist để được tư vấn, báo giá chi tiết và đặt lịch xe ngay nhé!
             </p>
             <img
-              src="http://localhost:4000/img/33576a5c500ae532499d8ac00.png"
+              src={`${import.meta.env.VITE_SERVER}/img/33576a5c500ae532499d8ac00.png`}
               alt=""
               className="w-[90%] lg:h-[400px] h-[150px] sm:h-[300px] object-cover my-5 mx-auto"
             />
@@ -138,7 +138,7 @@ function Properti() {
               90km, di chuyển bằng ô tô khoảng 110 phút
             </p>
             <img
-              src="http://localhost:4000/img/0944e3e09693209130c09e300.png"
+              src={`${import.meta.env.VITE_SERVER}/img/0944e3e09693209130c09e300.png`}
               alt=""
               className="w-[90%] lg:h-[400px] h-[150px] sm:h-[300px] object-cover my-5 mx-auto"
             />

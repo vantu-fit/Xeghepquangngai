@@ -1,8 +1,7 @@
 import React from "react";
-import "./Pricingtable.css";
+import "./PricingTable.css";
 import { useQuery } from "@tanstack/react-query";
 import { getPrice } from "../../apis/api";
-import { Price } from "../../types/types";
 import { get } from "http";
 function Pricingtable() {
   const { data } = useQuery({

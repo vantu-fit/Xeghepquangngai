@@ -79,7 +79,7 @@ function PostBody() {
               <NavLink to={"/chi-tiet-dich-vu"} key={index}>
                 <div className="hover:text-sky-900 hover:-translate-y-1 post-transition">
                   <img
-                    src={`http://localhost:4000/img/${
+                    src={`${import.meta.env.VITE_SERVER}/img/${
                       img?.data[
                         Math.floor(Math.random() * (img?.data.length || 0))
                       ]
@@ -109,7 +109,7 @@ function PostBody() {
               return (
                 <div className="flex my-2" key={index}>
                   <img
-                    src={`http://localhost:4000/img/${
+                    src={`${import.meta.env.VITE_SERVER}/img/${
                       img?.data[
                         Math.floor(Math.random() * (img?.data.length || 0))
                       ]
