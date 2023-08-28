@@ -2,9 +2,9 @@ import React from "react";
 import OnePrice from "./OnePrice";
 import CarTicket from "./CarTicket";
 import { useQuery } from "@tanstack/react-query";
-import { getPrice } from "../apis/api";
-import { ResponseApi } from "../types/response";
-import { Price } from "../types/types";
+import { getPrice } from "../../apis/api";
+import { ResponseApi } from "../../types/response";
+import { Price } from "../../types/types";
 function Pricing() {
   const { data } = useQuery({
     queryKey: ["prices"],

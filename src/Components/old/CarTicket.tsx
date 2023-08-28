@@ -1,8 +1,8 @@
 import React from "react";
-import { MyContext } from "../utils/createContext";
+import { MyContext } from "../../utils/createContext";
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import { Price } from "../types/types";
+import { Price } from "../../types/types";
 function CarTicket({ from, price, priceOne, to, type }: Price) {
   return (
     <div className="bg-slate-300 w-full rounded-xl px-2 py-2 hover:-translate-y-1 transition-all shadow-md font-semibold">

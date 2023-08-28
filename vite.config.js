@@ -11,6 +11,6 @@ export default defineConfig({
     devSourcemap: true,
   },
   preview : {
-    port: 3001,
+    port: 3000,
   }
 });

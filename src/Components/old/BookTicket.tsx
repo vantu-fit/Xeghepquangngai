@@ -1,7 +1,7 @@
 import { useState } from "react";
 import React from "react";
-import { Form } from "../utils/types.utils";
-import { MyContext } from "../utils/createContext";
+import { Form } from "../../utils/types.utils";
+import { MyContext } from "../../utils/createContext";
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 const initForm: Form = {
@@ -141,15 +141,15 @@ function BookTicket() {
         </div>
         <div className="mt-6 flex items-center justify-center gap-x-6">
           <NavLink to={"/"}>
-          <button
-            type="button"
-            className="text-sm font-semibold leading-6 text-gray-900"
-            onClick={() => {
-              setForm(initForm);
-            }}
-          >
-            Cancel
-          </button>
+            <button
+              type="button"
+              className="text-sm font-semibold leading-6 text-gray-900"
+              onClick={() => {
+                setForm(initForm);
+              }}
+            >
+              Cancel
+            </button>
           </NavLink>
           <button
             type="submit"

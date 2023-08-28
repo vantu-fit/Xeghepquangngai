@@ -1,5 +1,5 @@
 import React from "react";
-import { Post } from "../types/types";
+import { Post } from "../../types/types";
 import { NavLink } from "react-router-dom";
 
 function PropertiTitle({ title, content, image }: Post) {

@@ -1,8 +1,9 @@
 import React from "react";
 import TitleBlock from "./TitleBlock";
 import { useQuery } from "@tanstack/react-query";
-import { getPost } from "../apis/api";
-import { Post } from "../types/types";
+import { getPost } from "../../apis/api";
+import { Post } from "../../types/types";
+import "./Title.css";
 function Title() {
   const { data } = useQuery({
     queryKey: ["posts"],

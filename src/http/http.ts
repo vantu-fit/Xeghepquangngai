@@ -4,7 +4,7 @@ class Http {
   instance: AxiosInstance;
   constructor() {
     this.instance = axios.create({
-      baseURL: "http://localhost:4000",
+      baseURL: import.meta.env.VITE_SERVER as string,
       timeout: 3000,
     });
   }

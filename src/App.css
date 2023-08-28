@@ -6,8 +6,10 @@ html {
 body {
   font-family: "Helvetica Neue", Helvetica, Arial sans-serif;
   font-weight: 400;
+  background-color: #0c0c58;
 }
 
 .fontcustom {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 }

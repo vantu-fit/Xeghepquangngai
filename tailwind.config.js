@@ -9,6 +9,23 @@ export default {
       fontFamily : {
         'sans': ['"Inter var"', 'sans-serif'],
         'cus' : ['"Poppins"', 'sans-serif']
+      },
+      colors : {
+        'xanh-la-dam' :'#228B22',
+        'xanh-da-troi-dam' : '#007ACC',
+        'tim-dam' : '#8A2BE2',
+        'trang' :'#FFFFFF',
+        'xam-nhat' : '#B0B0B0',
+        'mau-xanh-la-toi' : '#006400',
+        'den-nhat': '#333333',
+        'xam-dam': ' #444444',
+        'xam-nhat-khac':'#555555',
+        'do':'#FF4500',
+        'vang-dam' : '#FFD700',
+        'xanh-dam-khac' : '#00CED1',
+        'cam-dam' : ' #FF6600',
+        'tim-dam-khac': '#9932CC',
+        'xanh-dam':'#2E8B57'
       }
     },
   },

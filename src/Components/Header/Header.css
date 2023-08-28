@@ -1,0 +1,48 @@
+@keyframes menufadein {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+        visibility: hidden;
+    }
+    to {
+        opacity: 0.9;
+        transform: translateX(0%);
+        visibility: visible;
+
+    }
+}
+
+.menutransition {
+    transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    animation-name: menufadein;
+    animation-duration: 0.5s; 
+}
+
+@keyframes headerfadein {
+    from {
+        opacity: 0;
+        transform: translateY(-100%);
+        visibility: hidden;
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0%);
+        visibility: visible;
+
+    }
+}
+
+.fixed-head {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    animation-name: headerfadein;
+    animation-duration: 1s;
+
+}
