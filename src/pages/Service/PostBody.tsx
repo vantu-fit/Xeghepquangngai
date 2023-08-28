@@ -3,61 +3,9 @@ import "./Service.css";
 import { NavLink } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { getImageName, getPrice } from "../../apis/api";
-import { randomInt } from "crypto";
 import { description } from "../../Components/data/data";
 
 function PostBody() {
-  const data = [
-    {
-      title: "Xe Ghép Quảng Ngãi - Đà Nẵng giá rẻ",
-      description: "Bạn đang cần tìm xe để di chuyển từ Quảng Ngãi đi Đà Nẵng",
-      content:
-        "Bạn đang cần tìm xe để di chuyển từ Quảng Ngãi đi Đà Nẵng hoặc ngược lại? Bạn đang phân vân không biết nên chọn hãng xe nào để có thể di chuyển một cách an toàn và tiết kiệm nhất? Hãy đến với dịch vụ xe ghép Quảng Ngãi - Đà Nẵng của chúng tôi. Chúng tôi sẽ đáp ứng được tất cả những yêu cầu của bạn.",
-      image: "http://localhost:4000/img/33576a5c500ae532499d8ac00.png",
-    },
-    {
-      title: "Xe Ghép Quảng Ngãi - Đà Nẵng giá rẻ",
-      description: "Bạn đang cần tìm xe để di chuyển từ Quảng Ngãi đi Đà Nẵng",
-      content:
-        "Bạn đang cần tìm xe để di chuyển từ Quảng Ngãi đi Đà Nẵng hoặc ngược lại? Bạn đang phân vân không biết nên chọn hãng xe nào để có thể di chuyển một cách an toàn và tiết kiệm nhất? Hãy đến với dịch vụ xe ghép Quảng Ngãi - Đà Nẵng của chúng tôi. Chúng tôi sẽ đáp ứng được tất cả những yêu cầu của bạn.",
-      image: "http://localhost:4000/img/33576a5c500ae532499d8ac00.png",
-    },
-    {
-      title: "Xe Ghép Quảng Ngãi - Đà Nẵng giá rẻ",
-      description: "Bạn đang cần tìm xe để di chuyển từ Quảng Ngãi đi Đà Nẵng",
-      content:
-        "Bạn đang cần tìm xe để di chuyển từ Quảng Ngãi đi Đà Nẵng hoặc ngược lại? Bạn đang phân vân không biết nên chọn hãng xe nào để có thể di chuyển một cách an toàn và tiết kiệm nhất? Hãy đến với dịch vụ xe ghép Quảng Ngãi - Đà Nẵng của chúng tôi. Chúng tôi sẽ đáp ứng được tất cả những yêu cầu của bạn.",
-      image: "http://localhost:4000/img/33576a5c500ae532499d8ac00.png",
-    },
-    {
-      title: "Xe Ghép Quảng Ngãi - Đà Nẵng giá rẻ",
-      description: "Bạn đang cần tìm xe để di chuyển từ Quảng Ngãi đi Đà Nẵng",
-      content:
-        "Bạn đang cần tìm xe để di chuyển từ Quảng Ngãi đi Đà Nẵng hoặc ngược lại? Bạn đang phân vân không biết nên chọn hãng xe nào để có thể di chuyển một cách an toàn và tiết kiệm nhất? Hãy đến với dịch vụ xe ghép Quảng Ngãi - Đà Nẵng của chúng tôi. Chúng tôi sẽ đáp ứng được tất cả những yêu cầu của bạn.",
-      image: "http://localhost:4000/img/33576a5c500ae532499d8ac00.png",
-    },
-    {
-      title: "Xe Ghép Quảng Ngãi - Đà Nẵng giá rẻ",
-      description: "Bạn đang cần tìm xe để di chuyển từ Quảng Ngãi đi Đà Nẵng",
-      content:
-        "Bạn đang cần tìm xe để di chuyển từ Quảng Ngãi đi Đà Nẵng hoặc ngược lại? Bạn đang phân vân không biết nên chọn hãng xe nào để có thể di chuyển một cách an toàn và tiết kiệm nhất? Hãy đến với dịch vụ xe ghép Quảng Ngãi - Đà Nẵng của chúng tôi. Chúng tôi sẽ đáp ứng được tất cả những yêu cầu của bạn.",
-      image: "http://localhost:4000/img/33576a5c500ae532499d8ac00.png",
-    },
-    {
-      title: "Xe Ghép Quảng Ngãi - Đà Nẵng giá rẻ",
-      description: "Bạn đang cần tìm xe để di chuyển từ Quảng Ngãi đi Đà Nẵng",
-      content:
-        "Bạn đang cần tìm xe để di chuyển từ Quảng Ngãi đi Đà Nẵng hoặc ngược lại? Bạn đang phân vân không biết nên chọn hãng xe nào để có thể di chuyển một cách an toàn và tiết kiệm nhất? Hãy đến với dịch vụ xe ghép Quảng Ngãi - Đà Nẵng của chúng tôi. Chúng tôi sẽ đáp ứng được tất cả những yêu cầu của bạn.",
-      image: "http://localhost:4000/img/33576a5c500ae532499d8ac00.png",
-    },
-    {
-      title: "Xe Ghép Quảng Ngãi - Đà Nẵng giá rẻ",
-      description: "Bạn đang cần tìm xe để di chuyển từ Quảng Ngãi đi Đà Nẵng",
-      content:
-        "Bạn đang cần tìm xe để di chuyển từ Quảng Ngãi đi Đà Nẵng hoặc ngược lại? Bạn đang phân vân không biết nên chọn hãng xe nào để có thể di chuyển một cách an toàn và tiết kiệm nhất? Hãy đến với dịch vụ xe ghép Quảng Ngãi - Đà Nẵng của chúng tôi. Chúng tôi sẽ đáp ứng được tất cả những yêu cầu của bạn.",
-      image: "http://localhost:4000/img/33576a5c500ae532499d8ac00.png",
-    },
-  ];
   const { data: name } = useQuery({
     queryKey: ["Pricingtable"],
     queryFn: getPrice,
@@ -66,7 +14,6 @@ function PostBody() {
     queryKey: ["ImageName"],
     queryFn: getImageName,
   });
-  console.log(name);
   return (
     <section className="max-w-[1150px] w-[90%] mx-auto text-slate-500 mb-5">
       <h1 className="text-center font-bold text-[18px] lg:text-[28px] text-sky-700 mt-4">
@@ -76,13 +23,14 @@ function PostBody() {
         <div className="col-span-3">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 sm:gap-4 lg:gap-6 my-2">
             {name?.data.map((item, index) => (
-              <NavLink to={"/chi-tiet-dich-vu"} key={index}>
+              <NavLink to={{
+                pathname : `/chi-tiet-dich-vu/${item.from}-${item.to}`,
+                search : `?location=${index}`,
+              }} key={index}>
                 <div className="hover:text-sky-900 hover:-translate-y-1 post-transition">
                   <img
-                    src={`${import.meta.env.VITE_SERVER}/img/${
-                      img?.data[
-                        Math.floor(Math.random() * (img?.data.length || 0))
-                      ]
+                    src={`${(import.meta as any).env.VITE_SERVER}/img/${
+                      img?.data[index]
                     }`}
                     // alt={item.title}
                     className="w-full h-[200px] lg:h-[200px] object-cover rounded-lg mt-4"
@@ -109,10 +57,8 @@ function PostBody() {
               return (
                 <div className="flex my-2" key={index}>
                   <img
-                    src={`${import.meta.env.VITE_SERVER}/img/${
-                      img?.data[
-                        Math.floor(Math.random() * (img?.data.length || 0))
-                      ]
+                    src={`${(import.meta as any).env.VITE_SERVER}/img/${
+                      img?.data[index]
                     }`}
                     // alt={item.title}
                     className="w-[100px] h-[100px] object-cover"

@@ -3,8 +3,8 @@ import "./Home.css";
 import { NavLink } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { getImageName, getPrice } from "../../apis/api";
+import { description } from "../../Components/data/data";
 function Post() {
-  
   const { data: name } = useQuery({
     queryKey: ["Pricingtable"],
     queryFn: getPrice,
@@ -21,12 +21,16 @@ function Post() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 sm:gap-4 lg:gap-6 my-2">
         {name?.data.map((item, index) => (
-          <NavLink to={"/chi-tiet-dich-vu"} key={index}>
-            <div className="hover:text-sky-900 hover:-translate-y-1 post-transition">
+          <NavLink
+            to={{
+              pathname: `/chi-tiet-dich-vu/${item.from}-${item.to}`,
+              search: `?location=${index}`,
+            }}
+            key={index}
+          >
+            <div className="hover:text-sky-900 hover:-translate-y-1 post-transition shadow-md pb-3">
               <img
-                src={`http://localhost:4000/img/${
-                  img?.data[Math.floor(Math.random() * (img?.data.length || 0))]
-                }`}
+                src={`${(import.meta as any).env.VITE_SERVER}/img/${img?.data[index]}`}
                 // alt={item.title}
                 className="w-full h-[200px] lg:h-[200px] object-cover rounded-lg mt-4"
               />
@@ -36,12 +40,7 @@ function Post() {
               </h3>
               <p className="text-center text-[10px] my-1"> Tháng 10 , 2023 </p>
               <p className="text-center text-[14px] mb-2">
-                {" "}
-                "Bạn đang cần tìm xe để di chuyển từ Quảng Ngãi đi Đà Nẵng hoặc
-                ngược lại? Bạn đang phân vân không biết nên chọn hãng xe nào để
-                có thể di chuyển một cách an toàn và tiết kiệm nhất? Hãy đến với
-                dịch vụ xe ghép Quảng Ngãi - Đà Nẵng của chúng tôi. Chúng tôi sẽ
-                đáp ứng được tất cả những yêu cầu của bạn.",
+                {description(item.from, item.to)[index]}
               </p>
             </div>
           </NavLink>

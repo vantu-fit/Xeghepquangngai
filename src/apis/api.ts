@@ -7,6 +7,7 @@ export const getPrice = async () => {
   return result.data as ResponseApi<Price[]>;
 };
 
+
 export const getPost = async () => {
   const result = await http.get("/users/post");
   

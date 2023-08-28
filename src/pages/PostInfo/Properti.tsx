@@ -1,68 +1,56 @@
-import React from "react";
-import { getPrice } from "../../apis/api";
+import React, { useEffect } from "react";
+import { getImageName, getPrice } from "../../apis/api";
 import { useQuery } from "@tanstack/react-query";
+import { useLocation, useParams } from "react-router-dom";
+import { Price } from "../../types/types";
 
 function Properti() {
-  const data = [
-    {
-      title: "Xe Ghép Quảng Ngãi - Đà Nẵng giá rẻ",
-      description: "Bạn đang cần tìm xe để di chuyển từ Quảng Ngãi đi Đà Nẵng",
-      content:
-        "Bạn đang cần tìm xe để di chuyển từ Quảng Ngãi đi Đà Nẵng hoặc ngược lại? Bạn đang phân vân không biết nên chọn hãng xe nào để có thể di chuyển một cách an toàn và tiết kiệm nhất? Hãy đến với dịch vụ xe ghép Quảng Ngãi - Đà Nẵng của chúng tôi. Chúng tôi sẽ đáp ứng được tất cả những yêu cầu của bạn.",
-      image: "http://localhost:4000/img/33576a5c500ae532499d8ac00.png",
-    },
-    {
-      title: "Xe Ghép Quảng Ngãi - Đà Nẵng giá rẻ",
-      description: "Bạn đang cần tìm xe để di chuyển từ Quảng Ngãi đi Đà Nẵng",
-      content:
-        "Bạn đang cần tìm xe để di chuyển từ Quảng Ngãi đi Đà Nẵng hoặc ngược lại? Bạn đang phân vân không biết nên chọn hãng xe nào để có thể di chuyển một cách an toàn và tiết kiệm nhất? Hãy đến với dịch vụ xe ghép Quảng Ngãi - Đà Nẵng của chúng tôi. Chúng tôi sẽ đáp ứng được tất cả những yêu cầu của bạn.",
-      image: "http://localhost:4000/img/33576a5c500ae532499d8ac00.png",
-    },
-    {
-      title: "Xe Ghép Quảng Ngãi - Đà Nẵng giá rẻ",
-      description: "Bạn đang cần tìm xe để di chuyển từ Quảng Ngãi đi Đà Nẵng",
-      content:
-        "Bạn đang cần tìm xe để di chuyển từ Quảng Ngãi đi Đà Nẵng hoặc ngược lại? Bạn đang phân vân không biết nên chọn hãng xe nào để có thể di chuyển một cách an toàn và tiết kiệm nhất? Hãy đến với dịch vụ xe ghép Quảng Ngãi - Đà Nẵng của chúng tôi. Chúng tôi sẽ đáp ứng được tất cả những yêu cầu của bạn.",
-      image: "http://localhost:4000/img/33576a5c500ae532499d8ac00.png",
-    },
-    {
-      title: "Xe Ghép Quảng Ngãi - Đà Nẵng giá rẻ",
-      description: "Bạn đang cần tìm xe để di chuyển từ Quảng Ngãi đi Đà Nẵng",
-      content:
-        "Bạn đang cần tìm xe để di chuyển từ Quảng Ngãi đi Đà Nẵng hoặc ngược lại? Bạn đang phân vân không biết nên chọn hãng xe nào để có thể di chuyển một cách an toàn và tiết kiệm nhất? Hãy đến với dịch vụ xe ghép Quảng Ngãi - Đà Nẵng của chúng tôi. Chúng tôi sẽ đáp ứng được tất cả những yêu cầu của bạn.",
-      image: "http://localhost:4000/img/33576a5c500ae532499d8ac00.png",
-    },
-    {
-      title: "Xe Ghép Quảng Ngãi - Đà Nẵng giá rẻ",
-      description: "Bạn đang cần tìm xe để di chuyển từ Quảng Ngãi đi Đà Nẵng",
-      content:
-        "Bạn đang cần tìm xe để di chuyển từ Quảng Ngãi đi Đà Nẵng hoặc ngược lại? Bạn đang phân vân không biết nên chọn hãng xe nào để có thể di chuyển một cách an toàn và tiết kiệm nhất? Hãy đến với dịch vụ xe ghép Quảng Ngãi - Đà Nẵng của chúng tôi. Chúng tôi sẽ đáp ứng được tất cả những yêu cầu của bạn.",
-      image: "http://localhost:4000/img/33576a5c500ae532499d8ac00.png",
-    },
-    {
-      title: "Xe Ghép Quảng Ngãi - Đà Nẵng giá rẻ",
-      description: "Bạn đang cần tìm xe để di chuyển từ Quảng Ngãi đi Đà Nẵng",
-      content:
-        "Bạn đang cần tìm xe để di chuyển từ Quảng Ngãi đi Đà Nẵng hoặc ngược lại? Bạn đang phân vân không biết nên chọn hãng xe nào để có thể di chuyển một cách an toàn và tiết kiệm nhất? Hãy đến với dịch vụ xe ghép Quảng Ngãi - Đà Nẵng của chúng tôi. Chúng tôi sẽ đáp ứng được tất cả những yêu cầu của bạn.",
-      image: "http://localhost:4000/img/33576a5c500ae532499d8ac00.png",
-    },
-    {
-      title: "Xe Ghép Quảng Ngãi - Đà Nẵng giá rẻ",
-      description: "Bạn đang cần tìm xe để di chuyển từ Quảng Ngãi đi Đà Nẵng",
-      content:
-        "Bạn đang cần tìm xe để di chuyển từ Quảng Ngãi đi Đà Nẵng hoặc ngược lại? Bạn đang phân vân không biết nên chọn hãng xe nào để có thể di chuyển một cách an toàn và tiết kiệm nhất? Hãy đến với dịch vụ xe ghép Quảng Ngãi - Đà Nẵng của chúng tôi. Chúng tôi sẽ đáp ứng được tất cả những yêu cầu của bạn.",
-      image: "http://localhost:4000/img/33576a5c500ae532499d8ac00.png",
-    },
-  ];
-  const { data : name } = useQuery({
-    queryKey: ["Pricingtable"],
-    queryFn: getPrice,
-  });
-  console.log(name?.data)
+  const [price, setPrice] = React.useState<number[][]>([]);
+  const getPriceByLocation = (
+    from: string | undefined,
+    to: string | undefined,
+    data: Price[]
+  ) => {
+    const result: number[][] = [];
+    for (let i = 0; i < data.length; i++) {
+      if (
+        data[i].from === from &&
+        data[i].to === to &&
+        data[i].type.includes("7")
+      ) {
+        result.push([data[i].price, data[i].priceOne, 7]);
+      }
+      if (
+        data[i].from === from &&
+        data[i].to === to &&
+        data[i].type.includes("4")
+      ) {
+        result.push([data[i].price, data[i].priceOne, 4]);
+      }
+    }
+    return result;
+  };
   const date = new Date();
   const year = date.getFullYear();
   const month = date.getMonth();
   const day = date.getDate() - 2;
+  const { id } = useParams();
+  const from = id?.split("-")[0];
+  const to = id?.split("-")[1];
+  const location = Number(useLocation().search.split("=")[1]);
+  const { data: name } = useQuery({
+    queryKey: ["Pricingtable"],
+    queryFn: getPrice,
+    onSuccess: (data) => {
+      console.log(getPriceByLocation(from, to, data.data));
+      setPrice(getPriceByLocation(from, to, data.data));
+    },
+  });
+  const { data: img } = useQuery({
+    queryKey: ["ImageName"],
+    queryFn: getImageName,
+  });
+
   return (
     <section className="max-w-[1150px] w-[90%] mx-auto text-slate-500 mb-5 leading-7">
       <h1 className="text-center font-bold text-[18px] lg:text-[28px] text-sky-700 mt-4">
@@ -77,7 +65,7 @@ function Properti() {
             </h3>
             <h1 className="font-bold text-slate-700 text-center text-[30px]">
               {" "}
-              Dịch vụ xe Chu Lai - Đức Phổ{" "}
+              Dịch vụ xe {from} - {to}{" "}
             </h1>
             <h3 className="uppercase text-slate-600 text-center text-[12px] font-medium">
               {" "}
@@ -92,7 +80,9 @@ function Properti() {
               Tourist để được tư vấn, báo giá chi tiết và đặt lịch xe ngay nhé!
             </p>
             <img
-              src={`${import.meta.env.VITE_SERVER}/img/33576a5c500ae532499d8ac00.png`}
+              src={`${(import.meta as any).env.VITE_SERVER}/img/${
+                img?.data[location]
+              }`}
               alt=""
               className="w-[90%] lg:h-[400px] h-[150px] sm:h-[300px] object-cover my-5 mx-auto"
             />
@@ -138,7 +128,9 @@ function Properti() {
               90km, di chuyển bằng ô tô khoảng 110 phút
             </p>
             <img
-              src={`${import.meta.env.VITE_SERVER}/img/0944e3e09693209130c09e300.png`}
+              src={`${(import.meta as any).env.VITE_SERVER}/img/${
+                img?.data[location + 1]
+              }`}
               alt=""
               className="w-[90%] lg:h-[400px] h-[150px] sm:h-[300px] object-cover my-5 mx-auto"
             />
@@ -151,7 +143,7 @@ function Properti() {
             </p>
             <h2 className="font-bold text-slate-700 text-[25px] my-3">
               {" "}
-              Bảng giá xe 7 chỗ Chu Lai – Đức Phổ
+              Bảng giá xe 7 chỗ , 4 Chỗ {from} – {to}
             </h2>
             <table className="my-2">
               <thead>
@@ -162,39 +154,22 @@ function Properti() {
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td className="border-[1px] border-slate-950">
-                    {" "}
-                    Chu Lai – Đức Phổ{" "}
-                  </td>
-                  <td className="border-[1px] border-slate-950"> 7 chỗ </td>
-                  <td className="border-[1px] border-slate-950">
-                    {" "}
-                    1000k/xe - 250k/ghế{" "}
-                  </td>
-                </tr>
-                <tr>
-                  <td className="border-[1px] border-slate-950">
-                    {" "}
-                    Chu Lai – Đức Phổ{" "}
-                  </td>
-                  <td className="border-[1px] border-slate-950"> 7 chỗ </td>
-                  <td className="border-[1px] border-slate-950">
-                    {" "}
-                    1000k/xe - 250k/ghế{" "}
-                  </td>
-                </tr>
-                <tr>
-                  <td className="border-[1px] border-slate-950">
-                    {" "}
-                    Chu Lai – Đức Phổ{" "}
-                  </td>
-                  <td className="border-[1px] border-slate-950"> 7 chỗ </td>
-                  <td className="border-[1px] border-slate-950">
-                    {" "}
-                    1000k/xe - 250k/ghế{" "}
-                  </td>
-                </tr>
+                {price.map((item, index) => (
+                  <tr key={index}>
+                    <td className="border-[1px] border-slate-950">
+                      {" "}
+                      {from} – {to}{" "}
+                    </td>
+                    <td className="border-[1px] border-slate-950">
+                      {" "}
+                      {item[2]} chỗ
+                    </td>
+                    <td className="border-[1px] border-slate-950">
+                      {" "}
+                      {item[0]}k/xe - {item[1]}k/ghế{" "}
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
             <p className="">
@@ -210,7 +185,7 @@ function Properti() {
             <ul className="list-disc leading-8 pl-8">
               <li>
                 {" "}
-                Bước 1: Kết nối tổng đài đặt xe 0928 901 901 – 0972 747 052{" "}
+                Bước 1: Kết nối tổng đài đặt xe 0386 6876 96{" "}
               </li>
               <li>
                 {" "}
@@ -304,27 +279,32 @@ function Properti() {
         <div className="lg:col-span-1 sm:col-span-4 col-span-4">
           <h2 className="font-bold my-5"> Bài Viết Mới </h2>
           <hr />
-          {data.map((item, index) => (
-            <div className="flex my-2" key={index}>
-              <img
-                src={item.image}
-                alt={item.title}
-                className="w-[100px] h-[100px] object-cover"
-              />
-              <div className="ml-2">
-                <h3 className="text-slate-600 font-semibold text-[14px]">
-                  {item.title}
-                </h3>
-                <p className="text-[10px] my-1">Tháng 10 , 2023</p>
-              </div>
-            </div>
-          ))}
+          {name?.data.map((item, index) => {
+            if (index < 10) {
+              return (
+                <div className="flex my-2" key={index}>
+                  <img
+                    src={`${(import.meta as any).env.VITE_SERVER}/img/${
+                      img?.data[index]
+                    }`}
+                    // alt={item.title}
+                    className="w-[100px] h-[100px] object-cover"
+                  />
+                  <div className="ml-2">
+                    <h3 className="text-slate-600 font-semibold text-[14px]">
+                      Xe Ghép {item.from} - {item.to}
+                    </h3>
+                    <p className="text-[10px] my-1">Tháng {month} , {year}</p>
+                  </div>
+                </div>
+              );
+            }
+          })}
           <h2 className="font-bold my-5"> Bài Viết Nổi Bật </h2>
           <ul className="ulli ml-3">
-            {data.map((item, index) => (
-              <li className="text-[14px] my-2" key={index}>
-                {" "}
-                {item.title}{" "}
+            {name?.data.map((item, index) => (
+              <li className="text-[14px] my-2 text-sky-700" key={index}>
+                Xe Ghép {item.from} - {item.to}
               </li>
             ))}
           </ul>

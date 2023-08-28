@@ -6,8 +6,9 @@ function Banner() {
       <div
         className="bg-cover w-full h-[400px] lg:h-[700px] bg-center bg-no-repeat pt-10 pl-10 lg:pl-20 lg:pt-20"
         style={{
-          backgroundImage:
-            'url("http://localhost:4000/img/ce80b7d36c8f1d9eb44bfc700.jpeg")',
+          backgroundImage: `url('${
+            import.meta.env.VITE_SERVER
+          }/img/ce80b7d36c8f1d9eb44bfc700.jpeg')`,
         }}
       >
         <h1 className="uppercase text-slate-900 text-[20px] font-bold lg:text-[30px]">

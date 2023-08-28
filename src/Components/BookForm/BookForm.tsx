@@ -57,19 +57,19 @@ function BookForm() {
               defaultValue={""}
             />
           </div>
-            <div className="mx-2 my-3 col-span-1">
-              <select
-                id="countries"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              >
-                <option selected value="7 chỗ">7 Chỗ</option>
-                <option value="4 Chỗ">4 Chỗ</option>
-              </select>
-            </div>
+          <div className="mx-2 my-3 col-span-1">
+            <select
+              id="countries"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            >
+              <option defaultValue="7 chỗ">7 Chỗ</option>
+              <option value="4 Chỗ">4 Chỗ</option>
+            </select>
+          </div>
 
-            <button className="mx-2 my-3 col-span-1 px-4 py-2 bg-teal-600 rounded-full">
-              Đặt xe
-            </button>
+          <button className="mx-2 my-3 col-span-1 px-4 py-2 bg-teal-600 rounded-full">
+            Đặt xe
+          </button>
         </form>
       </div>
     </section>
