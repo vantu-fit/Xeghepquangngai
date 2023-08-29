@@ -5,30 +5,6 @@ import { useState } from "react";
 
 function Header() {
   const [menuHidden, setMenuHidden] = useState<boolean>(false);
-  // const [header, setHeader] = useState<any>(null);
-  // const loadRoot = async () => {
-  //   return await document.querySelector("#root");
-  // };
-  // const loadHeader = async () => {
-  //   return await new Promise((resolve, reject) => {
-  //     const root = loadRoot().then((res) => {
-  //       const header = res?.querySelector("header");
-  //       resolve(header);
-  //       setHeader(header);
-  //     });
-  //   });
-  // };
-  // const head = loadHeader();
-  // // console.log(header)
-  // window.addEventListener("scroll", () => {
-  //   if (window.scrollY > 150) {
-  //     if (!header?.className.includes("fixed-head")) {
-  //       header?.classList.add("fixed-head");
-  //     }
-  //   } else {
-  //     header?.classList.remove("fixed-head");
-  //   }
-  // });
   return (
     <header className="w-full bg-white grid gap-3">
       {/* laptop */}
@@ -40,25 +16,51 @@ function Header() {
           hotline : 03.8668.7696{" "}
         </span>
       </div>
-      <div className="lg:grid sm:grid grid-cols-12 hidden">
+      <div className="lg:grid sm:grid grid-cols-12 hidden mb-2">
         <div className="col-span-3 px-3">
           <img
-            src="https://nhaxetruongphat.com/wp-content/uploads/2023/06/facvicon_ex-01.png"
-            alt=""
+            src={`${(import.meta as any).env.VITE_SERVER}/asset/logomain.jpg`}
+            alt="Xe Ghép Quảng Ngãi Đà Nẵng"
             className=""
           />
         </div>
         <div className="col-start-4 col-span-9 flex text-slate-600 font-semibold justify-between mx-5 my-auto text-[18px]">
-          <NavLink to={"/"}>Trang chủ</NavLink>
-          <NavLink to={"/dich-vu-xe-quang-ngai-da-nang"}>Dịch vụ xe</NavLink>
-          <NavLink to={"/bang-gia-thue-xe-quang-ngai-da-nang"}>
+          <NavLink
+            to={"/"}
+            className={({ isActive }) =>
+              isActive ? `border-b-[3px] border-sky-500 pb-5` : ""
+            }
+          >
+            Trang chủ
+          </NavLink>
+          <NavLink
+            to={"/dich-vu-xe-quang-ngai-da-nang"}
+            className={({ isActive }) =>
+              isActive ? `border-b-[3px] border-sky-500 pb-5` : ""
+            }
+          >
+            Dịch vụ xe
+          </NavLink>
+          <NavLink
+            to={"/bang-gia-thue-xe-quang-ngai-da-nang"}
+            className={({ isActive }) =>
+              isActive ? `border-b-[3px] border-sky-500 pb-5` : ""
+            }
+          >
             Bảng giá xe
           </NavLink>
-          <NavLink to={"/"}>Liên hệ</NavLink>
+          <NavLink
+            to={"/lien-he"}
+            className={({ isActive }) =>
+              isActive ? `border-b-[3px] border-sky-500 pb-5` : ""
+            }
+          >
+            Liên hệ
+          </NavLink>
         </div>
       </div>
       {/* mobile */}
-      <div className="flex justify-between px-5 sm:hidden lg:hidden">
+      <div className="flex justify-between px-5 sm:hidden lg:hidden my-1">
         <svg
           width="64px"
           height="64px"
@@ -86,8 +88,8 @@ function Header() {
           </g>
         </svg>
         <img
-          src="https://nhaxetruongphat.com/wp-content/uploads/2023/06/facvicon_ex-01.png"
-          alt=""
+          src={`${(import.meta as any).env.VITE_SERVER}/asset/logomain.jpg`}
+          alt="Xe Ghép Quảng Ngãi Đà Nẵng"
           className="max-h-[70px] max-w-[180px]"
         />
         <svg
@@ -142,30 +144,54 @@ function Header() {
               <path d="M0 26.016q0 2.496 1.76 4.224t4.256 1.76h20q2.464 0 4.224-1.76t1.76-4.224v-20q0-2.496-1.76-4.256t-4.224-1.76h-20q-2.496 0-4.256 1.76t-1.76 4.256v20zM4 26.016v-20q0-0.832 0.576-1.408t1.44-0.608h20q0.8 0 1.408 0.608t0.576 1.408v20q0 0.832-0.576 1.408t-1.408 0.576h-20q-0.832 0-1.44-0.576t-0.576-1.408zM9.76 20.256q0 0.832 0.576 1.408t1.44 0.608 1.408-0.608l2.816-2.816 2.816 2.816q0.576 0.608 1.408 0.608t1.44-0.608 0.576-1.408-0.576-1.408l-2.848-2.848 2.848-2.816q0.576-0.576 0.576-1.408t-0.576-1.408-1.44-0.608-1.408 0.608l-2.816 2.816-2.816-2.816q-0.576-0.608-1.408-0.608t-1.44 0.608-0.576 1.408 0.576 1.408l2.848 2.816-2.848 2.848q-0.576 0.576-0.576 1.408z" />{" "}
             </g>
           </svg>
-          <ul className="font-semibold">
+          <ul className="font-semibold leading-10">
             <li className="my-4">
-              <NavLink to={"/"} className="text-slate-600">
+              <NavLink
+                to={"/"}
+                className={({ isActive }) =>
+                  `py-2 px-4 rounded-lg ${
+                    isActive ? "bg-sky-400 text-slate-900" : "text-slate-600"
+                  }`
+                }
+              >
                 Trang chủ
               </NavLink>
             </li>
             <li className="my-4">
               <NavLink
                 to={"/dich-vu-xe-quang-ngai-da-nang"}
-                className="text-slate-600"
+                className={({ isActive }) =>
+                  `py-2 px-4 rounded-lg ${
+                    isActive ? "bg-sky-400 text-slate-900" : "text-slate-600"
+                  }`
+                }
               >
+                {" "}
                 Dịch vụ xe
               </NavLink>
             </li>
             <li className="my-4">
               <NavLink
                 to={"/bang-gia-thue-xe-quang-ngai-da-nang"}
-                className="text-slate-600"
+                className={({ isActive }) =>
+                  `py-2 px-4 rounded-lg ${
+                    isActive ? "bg-sky-400 text-slate-900" : "text-slate-600"
+                  }`
+                }
               >
+                {" "}
                 Bảng giá xe
               </NavLink>
             </li>
             <li className="my-4">
-              <NavLink to={"/"} className="text-slate-600">
+              <NavLink
+                to={"/chi-tiet"}
+                className={({ isActive }) =>
+                  `py-2 px-4 rounded-lg ${
+                    isActive ? "bg-sky-400 text-slate-900" : "text-slate-600"
+                  }`
+                }
+              >
                 Chi tiết
               </NavLink>
             </li>

@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { getImageName, getPrice } from "../../apis/api";
 import { useQuery } from "@tanstack/react-query";
-import { useLocation, useParams } from "react-router-dom";
+import { NavLink, useLocation, useParams } from "react-router-dom";
 import { Price } from "../../types/types";
+import { bottomTitle, headTitle } from "../../Components/data/data";
 
 function Properti() {
   const [price, setPrice] = React.useState<number[][]>([]);
@@ -72,18 +73,20 @@ function Properti() {
               {day} Tháng {month}, {year}{" "}
             </h3>
             <p>
-              {" "}
-              Trường Phát Tourist dịch vụ xe Chu Lai – Đức Phổ chất lượng đảm
-              bảo và cam kết mang đến sự hài lòng dành cho bạn. Nếu bạn đang
-              muốn đến địa điểm này và muốn di chuyển thoải mái, nhanh chóng,
-              tiết kiệm thì nhớ đừng quên nhấc máy gọi ngay cho Trường Phát
-              Tourist để được tư vấn, báo giá chi tiết và đặt lịch xe ngay nhé!
+              {
+                headTitle(from || "Quảng Ngãi", to || "Đà Nẵng")[
+                  Math.floor(
+                    Math.random() *
+                      headTitle(from || "Quảng Ngãi", to || "Đà Nẵng").length
+                  )
+                ]
+              }
             </p>
             <img
               src={`${(import.meta as any).env.VITE_SERVER}/img/${
                 img?.data[location]
               }`}
-              alt=""
+              alt={`Dịch vụ xe ${from} - ${to}`}
               className="w-[90%] lg:h-[400px] h-[150px] sm:h-[300px] object-cover my-5 mx-auto"
             />
             <div className="bg-slate-200 border-[1px] border-slate-950 px-4 py-3">
@@ -124,22 +127,31 @@ function Properti() {
               Dịch vụ xe Đà Nẵng - Quảng ngãi{" "}
             </h2>
             <p>
-              Khoảng cách đi lại từ sân bay Chu Lai đi về Đức Phổ tầm khoảng
-              90km, di chuyển bằng ô tô khoảng 110 phút
+              {
+                bottomTitle(from || "Quảng Ngãi", to || "Đà Nẵng")[
+                  Math.floor(
+                    Math.random() *
+                      bottomTitle(from || "Quảng Ngãi", to || "Đà Nẵng").length
+                  )
+                ]
+              }
             </p>
             <img
               src={`${(import.meta as any).env.VITE_SERVER}/img/${
                 img?.data[location + 1]
               }`}
-              alt=""
+              alt={`Dịch vụ xe ${from} - ${to}`}
               className="w-[90%] lg:h-[400px] h-[150px] sm:h-[300px] object-cover my-5 mx-auto"
             />
             <p>
-              Bạn có thể di chuyển nhiều loại hình dịch vụ khác nhau như taxi,
-              xe ôm, ô tô… Nhưng thuê xe ô tô giá rẻ vẫn là lựa chọn hợp lý và
-              tiện lợi nhất để di chuyển giữa sân bay Chu Lai – Đức Phổ. Với
-              dịch vụ Trường Phát Tourist bạn sẽ trải nghiệm sự riêng tư, sang
-              trọng từ các xe du lịch đời mới, xe 7 chỗ thoải mái.
+              {
+                bottomTitle(from || "Quảng Ngãi", to || "Đà Nẵng")[
+                  Math.floor(
+                    Math.random() *
+                      bottomTitle(from || "Quảng Ngãi", to || "Đà Nẵng").length
+                  )
+                ]
+              }
             </p>
             <h2 className="font-bold text-slate-700 text-[25px] my-3">
               {" "}
@@ -183,10 +195,7 @@ function Properti() {
               Đặt xe nhanh chóng dễ dàng từ Xe Ghép Quảng Ngãi - Đà Nẵng{" "}
             </h2>
             <ul className="list-disc leading-8 pl-8">
-              <li>
-                {" "}
-                Bước 1: Kết nối tổng đài đặt xe 0386 6876 96{" "}
-              </li>
+              <li> Bước 1: Kết nối tổng đài đặt xe 0386 6876 96 </li>
               <li>
                 {" "}
                 Bước 2: Gửi yêu cầu về xe, ngày giờ, địa điểm đón, số người đi
@@ -282,30 +291,50 @@ function Properti() {
           {name?.data.map((item, index) => {
             if (index < 10) {
               return (
-                <div className="flex my-2" key={index}>
-                  <img
-                    src={`${(import.meta as any).env.VITE_SERVER}/img/${
-                      img?.data[index]
-                    }`}
-                    // alt={item.title}
-                    className="w-[100px] h-[100px] object-cover"
-                  />
-                  <div className="ml-2">
-                    <h3 className="text-slate-600 font-semibold text-[14px]">
-                      Xe Ghép {item.from} - {item.to}
-                    </h3>
-                    <p className="text-[10px] my-1">Tháng {month} , {year}</p>
+                <NavLink
+                  to={{
+                    pathname: `/chi-tiet-dich-vu/${item.from}-${item.to}`,
+                    search: `?location=${index}`,
+                  }}
+                  key={index}
+                  className={"cursor-pointer"}
+                >
+                  <div className="flex my-2" key={index}>
+                    <img
+                      src={`${(import.meta as any).env.VITE_SERVER}/img/${
+                        img?.data[index]
+                      }`}
+                      alt={`Dịch vụ xe ${from} - ${to}`}
+                      className="w-[100px] h-[100px] object-cover"
+                    />
+                    <div className="ml-2">
+                      <h3 className="text-slate-600 font-semibold text-[14px]">
+                        Xe Ghép {item.from} - {item.to}
+                      </h3>
+                      <p className="text-[10px] my-1">
+                        Tháng {month} , {year}
+                      </p>
+                    </div>
                   </div>
-                </div>
+                </NavLink>
               );
             }
           })}
           <h2 className="font-bold my-5"> Bài Viết Nổi Bật </h2>
           <ul className="ulli ml-3">
             {name?.data.map((item, index) => (
-              <li className="text-[14px] my-2 text-sky-700" key={index}>
-                Xe Ghép {item.from} - {item.to}
-              </li>
+              <NavLink
+                to={{
+                  pathname: `/chi-tiet-dich-vu/${item.from}-${item.to}`,
+                  search: `?location=${index}`,
+                }}
+                key={index}
+                className={"cursor-pointer"}
+              >
+                <li className="text-[14px] my-2 text-sky-700" key={index}>
+                  Xe Ghép {item.from} - {item.to}
+                </li>
+              </NavLink>
             ))}
           </ul>
         </div>

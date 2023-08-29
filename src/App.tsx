@@ -11,6 +11,7 @@ import { Route, Routes } from "react-router-dom";
 import Service from "./pages/Service";
 import Price from "./pages/Price";
 import PostInfo from "./pages/PostInfo";
+import ContactPage from "./pages/ContactPage";
 function App() {
   
   return (
@@ -19,6 +20,7 @@ function App() {
       <Route path="dich-vu-xe-quang-ngai-da-nang" element={<Service />} />
       <Route path="bang-gia-thue-xe-quang-ngai-da-nang" element={<Price />} />
       <Route path="chi-tiet-dich-vu/:id" element={<PostInfo />} />
+      <Route path="lien-he" element={<ContactPage/>}/>
 
       {/* <Route path="/book-ticket" element={<Booking />} />
       <Route path="/chi-tiet/:id" element={<PropertyTitle />} />

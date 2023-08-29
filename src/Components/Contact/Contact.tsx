@@ -2,10 +2,7 @@ import React from "react";
 function Contact() {
   return (
     <div className="fixed left-2 bottom-2 z-40">
-      <a
-        href="https://www.facebook.com/messages/t/100033312240712"
-        className="my-4"
-      >
+      <a href="https://www.messenger.com/t/104023729360281" className="my-4">
         <div className="bg-slate-700 rounded-full animate-ping w-6 h-6 lg:w-8 lg:h-8 -mb-9 lg:-mb-12 ml-3 lg:ml-4"></div>
         <svg
           fill="#1970b3"
@@ -28,8 +25,9 @@ function Contact() {
           </g>
         </svg>
       </a>
-      <div className="bg-slate-700 rounded-full animate-ping w-6 h-6 lg:w-8 lg:h-8 -mb-9 lg:-mb-12 ml-3 lg:ml-4"></div>
-      <a className="my-4">
+
+      <a className="my-4" href="https://zalo.me/0386687696">
+        <div className="bg-slate-700 rounded-full animate-ping w-6 h-6 lg:w-8 lg:h-8 -mb-9 lg:-mb-12 ml-3 lg:ml-4"></div>
         <svg
           width="64px"
           height="64px"
@@ -94,9 +92,9 @@ function Contact() {
           </g>
         </svg>
       </a>
-      
+
       <a className="my-4" href="tel:+84347020401">
-      <div className="bg-slate-700 rounded-full animate-ping w-6 h-6 lg:w-8 lg:h-8 -mb-9 lg:-mb-12 ml-3 lg:ml-4"></div>
+        <div className="bg-slate-700 rounded-full animate-ping w-6 h-6 lg:w-8 lg:h-8 -mb-9 lg:-mb-12 ml-3 lg:ml-4"></div>
         <svg
           width="64px"
           height="64px"
@@ -104,7 +102,6 @@ function Contact() {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           className="w-12 h-12 lg:w-16 lg:h-16 mb-4 lg:mb-6"
-          
         >
           <g id="SVGRepo_bgCarrier" strokeWidth={0} />
           <g

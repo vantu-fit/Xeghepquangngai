@@ -76,7 +76,7 @@ function PostBody() {
           <h2 className="font-bold my-5"> Bài Viết Nổi Bật </h2>
           <ul className="ulli ml-3">
             {name?.data.map((item, index) => (
-              <li className="text-[14px] my-2" key={index}>
+              <li className="text-[14px] my-2 text-sky-500" key={index}>
                 Xe Ghép {item.from} - {item.to}
               </li>
             ))}
