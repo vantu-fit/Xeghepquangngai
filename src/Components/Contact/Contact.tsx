@@ -93,7 +93,7 @@ function Contact() {
         </svg>
       </a>
 
-      <a className="my-4" href="tel:+84347020401">
+      <a className="my-4" href="tel:+84386687696">
         <div className="bg-slate-700 rounded-full animate-ping w-6 h-6 lg:w-8 lg:h-8 -mb-9 lg:-mb-12 ml-3 lg:ml-4"></div>
         <svg
           width="64px"

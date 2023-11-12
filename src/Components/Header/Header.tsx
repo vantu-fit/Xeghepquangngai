@@ -185,7 +185,7 @@ function Header() {
             </li>
             <li className="my-4">
               <NavLink
-                to={"/chi-tiet"}
+                to={"/lien-he"}
                 className={({ isActive }) =>
                   `py-2 px-4 rounded-lg ${
                     isActive ? "bg-sky-400 text-slate-900" : "text-slate-600"
