@@ -7,21 +7,21 @@ function Banner() {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 1 ,
+    slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: true, 
+    autoplay: true,
     autoplaySpeed: 4000,
-  };  
+  };
   const url = [
-    "src/assets/Banner1.png",
-    "src/assets/Banner2.png",
-    "src/assets/Banner3.png",
-    "src/assets/Banner4.png",
+    "../src/assets/Banner1.png",
+    "../src/assets/Banner2.png",
+    "../src/assets/Banner3.png",
+    "../src/assets/Banner4.png",
   ]
   return (
     <section className="w-full">
-      <Slider {...settings } className="mb-10 -z-10">
-        {url.map((uri , index) => (<div
+      <Slider {...settings} className="mb-10 -z-10">
+        {url.map((uri, index) => (<div
           key={index}
           className="bg-cover w-full lg:h-[700px] bg-center bg-no-repeat mx-3 "
         >
