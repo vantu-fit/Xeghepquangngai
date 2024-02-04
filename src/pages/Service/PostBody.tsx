@@ -24,14 +24,13 @@ function PostBody() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 sm:gap-4 lg:gap-6 my-2">
             {name?.data.map((item, index) => (
               <NavLink to={{
-                pathname : `/chi-tiet-dich-vu/${item.from}-${item.to}`,
-                search : `?location=${index}`,
+                pathname: `/chi-tiet-dich-vu/${item.from}-${item.to}`,
+                search: `?location=${index}`,
               }} key={index}>
                 <div className="hover:text-sky-900 hover:-translate-y-1 post-transition">
                   <img
-                    src={`${(import.meta as any).env.VITE_SERVER}/img/${
-                      img?.data[index]
-                    }`}
+                    src={`${(import.meta as any).env.VITE_SERVER}/img/${img?.data[index]
+                      }`}
                     // alt={item.title}
                     className="w-full h-[200px] lg:h-[200px] object-cover rounded-lg mt-4"
                   />
@@ -57,9 +56,8 @@ function PostBody() {
               return (
                 <div className="flex my-2" key={index}>
                   <img
-                    src={`${(import.meta as any).env.VITE_SERVER}/img/${
-                      img?.data[index]
-                    }`}
+                    src={`${(import.meta as any).env.VITE_SERVER}/img/${img?.data[index]
+                      }`}
                     // alt={item.title}
                     className="w-[100px] h-[100px] object-cover"
                   />
@@ -76,9 +74,18 @@ function PostBody() {
           <h2 className="font-bold my-5"> Bài Viết Nổi Bật </h2>
           <ul className="ulli ml-3">
             {name?.data.map((item, index) => (
-              <li className="text-[14px] my-2 text-sky-500" key={index}>
-                Xe Ghép {item.from} - {item.to}
-              </li>
+              <NavLink
+                to={{
+                  pathname: `/chi-tiet-dich-vu/${item.from}-${item.to}`,
+                  search: `?location=${index}`,
+                }}
+                key={index}
+                className={"cursor-pointer"}
+              >
+                <li className="text-[14px] my-2 text-sky-700" key={index}>
+                  Xe Ghép {item.from} - {item.to}
+                </li>
+              </NavLink>
             ))}
           </ul>
         </div>

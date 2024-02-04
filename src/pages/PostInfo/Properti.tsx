@@ -34,7 +34,7 @@ function Properti() {
   const date = new Date();
   const year = date.getFullYear();
   const month = date.getMonth();
-  const day = date.getDate() - 2;
+  const day = (date.getDate() - 2) > 0 ? date.getDate() - 2 : 1;
   const { id } = useParams();
   const from = id?.split("-")[0];
   const to = id?.split("-")[1];
@@ -51,6 +51,9 @@ function Properti() {
     queryKey: ["ImageName"],
     queryFn: getImageName,
   });
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <section className="max-w-[1150px] w-[90%] mx-auto text-slate-500 mb-5 leading-7">
@@ -94,37 +97,33 @@ function Properti() {
               <ol className="ml-3 leading-6 list-decimal">
                 <li className="text-[14px] hover:text-sky-600 transition">
                   {" "}
-                  Giới thiệu về Đức Phổ{" "}
+                  Giới thiệu về {to}
                 </li>
                 <li className="text-[14px] hover:text-sky-600 transition">
                   {" "}
-                  Địa điểm nổi bật ở Đức Phổ{" "}
+                  Địa điểm nổi bật ở {to}
                 </li>
                 <li className="text-[14px] hover:text-sky-600 transition">
                   {" "}
-                  Các dịch vụ của chúng tôi{" "}
+                  Các dịch vụ của chúng tôi
                 </li>
                 <li className="text-[14px] hover:text-sky-600 transition">
                   {" "}
-                  Lý do bạn nên chọn chúng tôi{" "}
+                  Lý do bạn nên chọn chúng tôi
                 </li>
                 <li className="text-[14px] hover:text-sky-600 transition">
-                  {" "}
-                  Bảng giá dịch vụ{" "}
+                  Bảng giá dịch vụ
                 </li>
                 <li className="text-[14px] hover:text-sky-600 transition">
-                  {" "}
-                  Hình ảnh xe{" "}
+                  Hình ảnh xe
                 </li>
                 <li className="text-[14px] hover:text-sky-600 transition">
-                  {" "}
-                  Liên hệ đặt xe{" "}
+                  Liên hệ đặt xe
                 </li>
               </ol>
             </div>
             <h2 className="font-bold text-slate-700 text-[25px] my-3">
-              {" "}
-              Dịch vụ xe Đà Nẵng - Quảng ngãi{" "}
+              Dịch vụ xe Đà Nẵng - Quảng ngãi
             </h2>
             <p>
               {
@@ -321,7 +320,7 @@ function Properti() {
             }
           })}
           <h2 className="font-bold my-5"> Bài Viết Nổi Bật </h2>
-          <ul className="ulli ml-3">
+          <ul className="ul li ml-3">
             {name?.data.map((item, index) => (
               <NavLink
                 to={{

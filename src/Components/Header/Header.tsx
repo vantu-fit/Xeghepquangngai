@@ -5,8 +5,9 @@ import { useState } from "react";
 
 function Header() {
   const [menuHidden, setMenuHidden] = useState<boolean>(false);
+  const activeStyle = ""
   return (
-    <header className="w-full bg-white grid gap-3">
+    <header className="w-full bg-white grid gap-3 z-50">
       {/* laptop */}
       <div className="col-span-12 py-1 flex-row hidden lg:block sm:block bg-slate-900 ">
         <span className="uppercase text-gray-200 font-bold text-sm px-3">
@@ -28,7 +29,7 @@ function Header() {
           <NavLink
             to={"/"}
             className={({ isActive }) =>
-              isActive ? `border-b-[3px] border-sky-500 pb-5` : ""
+              isActive ? `border-b-[3px] border-sky-500 pb-5 text-slate-950` : ""
             }
           >
             Trang chủ
@@ -36,7 +37,7 @@ function Header() {
           <NavLink
             to={"/dich-vu-xe-quang-ngai-da-nang"}
             className={({ isActive }) =>
-              isActive ? `border-b-[3px] border-sky-500 pb-5` : ""
+              isActive ? `border-b-[3px] border-sky-500 pb-5 text-slate-950` : ""
             }
           >
             Dịch vụ xe
@@ -44,7 +45,7 @@ function Header() {
           <NavLink
             to={"/bang-gia-thue-xe-quang-ngai-da-nang"}
             className={({ isActive }) =>
-              isActive ? `border-b-[3px] border-sky-500 pb-5` : ""
+              isActive ? `border-b-[3px] border-sky-500 pb-5 text-slate-950` : ""
             }
           >
             Bảng giá xe
@@ -52,7 +53,7 @@ function Header() {
           <NavLink
             to={"/lien-he"}
             className={({ isActive }) =>
-              isActive ? `border-b-[3px] border-sky-500 pb-5` : ""
+              isActive ? `border-b-[3px] border-sky-500 pb-5 text-slate-950` : ""
             }
           >
             Liên hệ
@@ -149,8 +150,7 @@ function Header() {
               <NavLink
                 to={"/"}
                 className={({ isActive }) =>
-                  `py-2 px-4 rounded-lg ${
-                    isActive ? "bg-sky-400 text-slate-900" : "text-slate-600"
+                  `py-2 px-4 rounded-lg ${isActive ? "bg-sky-400 text-slate-900" : "text-slate-600"
                   }`
                 }
               >
@@ -161,8 +161,7 @@ function Header() {
               <NavLink
                 to={"/dich-vu-xe-quang-ngai-da-nang"}
                 className={({ isActive }) =>
-                  `py-2 px-4 rounded-lg ${
-                    isActive ? "bg-sky-400 text-slate-900" : "text-slate-600"
+                  `py-2 px-4 rounded-lg ${isActive ? "bg-sky-400 text-slate-900" : "text-slate-600"
                   }`
                 }
               >
@@ -174,8 +173,7 @@ function Header() {
               <NavLink
                 to={"/bang-gia-thue-xe-quang-ngai-da-nang"}
                 className={({ isActive }) =>
-                  `py-2 px-4 rounded-lg ${
-                    isActive ? "bg-sky-400 text-slate-900" : "text-slate-600"
+                  `py-2 px-4 rounded-lg ${isActive ? "bg-sky-400 text-slate-900" : "text-slate-600"
                   }`
                 }
               >
@@ -187,8 +185,7 @@ function Header() {
               <NavLink
                 to={"/lien-he"}
                 className={({ isActive }) =>
-                  `py-2 px-4 rounded-lg ${
-                    isActive ? "bg-sky-400 text-slate-900" : "text-slate-600"
+                  `py-2 px-4 rounded-lg ${isActive ? "bg-sky-400 text-slate-900" : "text-slate-600"
                   }`
                 }
               >

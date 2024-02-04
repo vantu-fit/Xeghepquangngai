@@ -64,7 +64,7 @@ function Contact() {
               <style
                 dangerouslySetInnerHTML={{
                   __html:
-                    ".b{fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;}",
+                    ".b{fill:none;stroke:#000000;strokeLinecap:round;strokeLinejoin:round;}",
                 }}
               />
             </defs>
