@@ -13,10 +13,10 @@ function Banner() {
     autoplaySpeed: 4000,
   };
   const url = [
-    "../src/assets/Banner1.png",
-    "../src/assets/Banner2.png",
-    "../src/assets/Banner3.png",
-    "../src/assets/Banner4.png",
+    `${process.env.VITE_SERVER}/asset/Banner1.png`,
+    `${process.env.VITE_SERVER}/asset/Banner2.png`,
+    `${process.env.VITE_SERVER}/asset/Banner3.png`,
+    `${process.env.VITE_SERVER}/asset/Banner4.png`,
   ]
   return (
     <section className="w-full">
