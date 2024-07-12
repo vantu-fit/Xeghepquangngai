@@ -27,8 +27,10 @@
 - Domain provider: Tenten.vn
 - 9/2023 - 3/2024 : Deploy on Google Cloud Compute Engine
 - 3/2024 - 4/2024 : Deploy on AWS EC2(Free Tier)
-- 4/2024 - present : Deploy on Azure App Service
-- Future : Deploy on AWS Amplify and migrate backend to serverless (API Gateway, Lambda, DynamoDB) to reduce cost
+- 4/2024 - 7/2024 : Deploy on Azure App Service
+- 7/2024 - Now : Deploy on AWS serverless
+## Architecture
+![architecture](./public/architecture.png)
 
 
 ## TODO
