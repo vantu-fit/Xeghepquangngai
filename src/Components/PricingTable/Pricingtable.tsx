@@ -1,13 +1,8 @@
 import React from "react";
 import "./PricingTable.css";
-import { useQuery } from "@tanstack/react-query";
-import { getPrice } from "../../apis/api";
-import { get } from "http";
+import { PriceData } from "../data/pricing";
 function Pricingtable() {
-  const { data } = useQuery({
-    queryKey: ["Pricingtable"],
-    queryFn: getPrice,
-  })
+  const data = PriceData
   //   {
   //     from: "Quảng Ngãi",
   //     to: "Đà Nẵng",
@@ -59,7 +54,7 @@ function Pricingtable() {
           </tr>
         </thead>
         <tbody>
-          {data?.data.map((item, index) => (
+          {data.map((item, index) => (
             <tr key={index}>
               <td>
                 {item.from} - {item.to}{" "}

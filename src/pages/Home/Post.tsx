@@ -1,25 +1,19 @@
 import React from "react";
 import "./Home.css";
 import { NavLink } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
-import { getImageName, getPrice } from "../../apis/api";
 import { description } from "../../Components/data/data";
+import { PostImgs } from "./Import";
+import { PriceData } from "../../Components/data/pricing";
 function Post() {
-  const { data: name } = useQuery({
-    queryKey: ["Pricingtable"],
-    queryFn: getPrice,
-  });
-  const { data: img } = useQuery({
-    queryKey: ["ImageName"],
-    queryFn: getImageName,
-  });
+  const name = PriceData;
+  const data = PostImgs;
   return (
     <section className="max-w-[1150px] w-[90%] mx-auto text-slate-500">
       <h2 className="text-center text-sky-500 font-semibold text-[25px] my-4">
         Xe Ghép Quảng Ngãi - Đà Nẵng
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 sm:gap-4 lg:gap-6 my-2">
-        {name?.data.map((item, index) => (
+        {name.map((item, index) => (
           <NavLink
             to={{
               pathname: `/chi-tiet-dich-vu/${item.from}-${item.to}`,
@@ -29,8 +23,8 @@ function Post() {
           >
             <div className="hover:text-sky-900 hover:-translate-y-1 post-transition shadow-md pb-3">
               <img
-                src={`${(import.meta as any).env.VITE_SERVER}/img/${img?.data[index]}`}
-                alt={item.title}
+                src={PostImgs[index]}
+                alt={`Xe Ghép ${item.from} - ${item.to}`}
                 className="w-full h-[200px] lg:h-[200px] object-cover rounded-lg mt-4"
               />
               <h3 className="text-sky-400 font-bold text-center text-[16px] pt-3">

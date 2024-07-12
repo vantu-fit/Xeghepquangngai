@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import { getImageName, getPrice } from "../../apis/api";
-import { useQuery } from "@tanstack/react-query";
 import { NavLink, useLocation, useParams } from "react-router-dom";
 import { Price } from "../../types/types";
 import { bottomTitle, headTitle } from "../../Components/data/data";
+import { PostImgs } from "../Home/Import";
+import { PriceData } from "../../Components/data/pricing";
 
 function Properti() {
   const [price, setPrice] = React.useState<number[][]>([]);
@@ -39,18 +39,7 @@ function Properti() {
   const from = id?.split("-")[0];
   const to = id?.split("-")[1];
   const location = Number(useLocation().search.split("=")[1]);
-  const { data: name } = useQuery({
-    queryKey: ["Pricingtable"],
-    queryFn: getPrice,
-    onSuccess: (data) => {
-      console.log(getPriceByLocation(from, to, data.data));
-      setPrice(getPriceByLocation(from, to, data.data));
-    },
-  });
-  const { data: img } = useQuery({
-    queryKey: ["ImageName"],
-    queryFn: getImageName,
-  });
+  const name = PriceData;
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -86,9 +75,7 @@ function Properti() {
               }
             </p>
             <img
-              src={`${(import.meta as any).env.VITE_SERVER}/img/${
-                img?.data[location]
-              }`}
+              src={PostImgs[location]}
               alt={`Dịch vụ xe ${from} - ${to}`}
               className="w-[90%] lg:h-[400px] h-[150px] sm:h-[300px] object-cover my-5 mx-auto"
             />
@@ -136,9 +123,7 @@ function Properti() {
               }
             </p>
             <img
-              src={`${(import.meta as any).env.VITE_SERVER}/img/${
-                img?.data[location + 1]
-              }`}
+              src={PostImgs[location + 1]}
               alt={`Dịch vụ xe ${from} - ${to}`}
               className="w-[90%] lg:h-[400px] h-[150px] sm:h-[300px] object-cover my-5 mx-auto"
             />
@@ -287,7 +272,7 @@ function Properti() {
         <div className="lg:col-span-1 sm:col-span-4 col-span-4">
           <h2 className="font-bold my-5"> Bài Viết Mới </h2>
           <hr />
-          {name?.data.map((item, index) => {
+          {name.map((item, index) => {
             if (index < 10) {
               return (
                 <NavLink
@@ -300,9 +285,7 @@ function Properti() {
                 >
                   <div className="flex my-2" key={index}>
                     <img
-                      src={`${(import.meta as any).env.VITE_SERVER}/img/${
-                        img?.data[index]
-                      }`}
+                      src={PostImgs[index]}
                       alt={`Dịch vụ xe ${from} - ${to}`}
                       className="w-[100px] h-[100px] object-cover"
                     />
@@ -321,7 +304,7 @@ function Properti() {
           })}
           <h2 className="font-bold my-5"> Bài Viết Nổi Bật </h2>
           <ul className="ul li ml-3">
-            {name?.data.map((item, index) => (
+            {name.map((item, index) => (
               <NavLink
                 to={{
                   pathname: `/chi-tiet-dich-vu/${item.from}-${item.to}`,

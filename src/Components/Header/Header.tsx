@@ -2,6 +2,7 @@ import React from "react";
 import "./Header.css";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
+import Logo from "../../assets/logomain.jpg";
 
 function Header() {
   const [menuHidden, setMenuHidden] = useState<boolean>(false);
@@ -20,7 +21,7 @@ function Header() {
       <div className="lg:grid sm:grid grid-cols-12 hidden mb-2">
         <div className="col-span-3 px-3">
           <img
-            src={`${(import.meta as any).env.VITE_SERVER}/asset/logomain.jpg`}
+            src={Logo}
             alt="Xe Ghép Quảng Ngãi Đà Nẵng"
             className=""
           />
@@ -89,7 +90,7 @@ function Header() {
           </g>
         </svg>
         <img
-          src={`${(import.meta as any).env.VITE_SERVER}/asset/logomain.jpg`}
+          src={Logo}
           alt="Xe Ghép Quảng Ngãi Đà Nẵng"
           className="max-h-[70px] max-w-[180px]"
         />

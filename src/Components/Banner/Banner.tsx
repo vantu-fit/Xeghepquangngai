@@ -2,6 +2,10 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Banner1 from "../../assets/banner1.jpeg";
+import Banner2 from "../../assets/banner2.jpeg";
+import Banner3 from "../../assets/banner3.jpeg";
+import Banner4 from "../../assets/banner4.jpeg";
 function Banner() {
   var settings = {
     dots: true,
@@ -13,10 +17,10 @@ function Banner() {
     autoplaySpeed: 4000,
   };
   const url = [
-    `${(import.meta as any).env.VITE_SERVER}/asset/banner1.jpeg`,
-    `${(import.meta as any).env.VITE_SERVER}/asset/banner2.jpeg`,
-    `${(import.meta as any).env.VITE_SERVER}/asset/banner3.jpeg`,
-    `${(import.meta as any).env.VITE_SERVER}/asset/banner4.jpeg`,
+    Banner1,
+    Banner2,
+    Banner3,
+    Banner4
   ]
   return (
     <section className="w-full">

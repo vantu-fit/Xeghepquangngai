@@ -1,19 +1,12 @@
 import React from "react";
 import "./Service.css";
 import { NavLink } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
-import { getImageName, getPrice } from "../../apis/api";
 import { description } from "../../Components/data/data";
+import { PostImgs } from "../Home/Import";
+import { PriceData } from "../../Components/data/pricing";
 
 function PostBody() {
-  const { data: name } = useQuery({
-    queryKey: ["Pricingtable"],
-    queryFn: getPrice,
-  });
-  const { data: img } = useQuery({
-    queryKey: ["ImageName"],
-    queryFn: getImageName,
-  });
+  const name = PriceData;
   return (
     <section className="max-w-[1150px] w-[90%] mx-auto text-slate-500 mb-5">
       <h1 className="text-center font-bold text-[18px] lg:text-[28px] text-sky-700 mt-4">
@@ -22,15 +15,14 @@ function PostBody() {
       <div className="grid lg:grid-cols-4 sm:grid-cols-3 grid-cols-1 lg:gap-10">
         <div className="col-span-3">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 sm:gap-4 lg:gap-6 my-2">
-            {name?.data.map((item, index) => (
+            {name.map((item, index) => (
               <NavLink to={{
                 pathname: `/chi-tiet-dich-vu/${item.from}-${item.to}`,
                 search: `?location=${index}`,
               }} key={index}>
                 <div className="hover:text-sky-900 hover:-translate-y-1 post-transition">
                   <img
-                    src={`${(import.meta as any).env.VITE_SERVER}/img/${img?.data[index]
-                      }`}
+                    src={PostImgs[index]}
                     // alt={item.title}
                     className="w-full h-[200px] lg:h-[200px] object-cover rounded-lg mt-4"
                   />
@@ -51,13 +43,12 @@ function PostBody() {
         <div className="col-span-1">
           <h2 className="font-bold my-5"> Bài Viết Mới </h2>
           <hr />
-          {name?.data.map((item, index) => {
+          {name.map((item, index) => {
             if (index < 10) {
               return (
                 <div className="flex my-2" key={index}>
                   <img
-                    src={`${(import.meta as any).env.VITE_SERVER}/img/${img?.data[index]
-                      }`}
+                    src={PostImgs[index]}
                     // alt={item.title}
                     className="w-[100px] h-[100px] object-cover"
                   />
@@ -73,7 +64,7 @@ function PostBody() {
           })}
           <h2 className="font-bold my-5"> Bài Viết Nổi Bật </h2>
           <ul className="ulli ml-3">
-            {name?.data.map((item, index) => (
+            {name.map((item, index) => (
               <NavLink
                 to={{
                   pathname: `/chi-tiet-dich-vu/${item.from}-${item.to}`,
